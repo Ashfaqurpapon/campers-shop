@@ -10,7 +10,7 @@ import BackpackCovers9 from "../images/BackpackCovers9.jpg";
 import BackpackCovers10 from "../images/BackpackCovers10.jpg";
 import BackpackCovers11 from "../images/BackpackCovers11.jpg";
 import BackpackCovers12 from "../images/BackpackCovers12.jpg";
-import airmattresses1 from "../images/air mattresses1.jpg";
+import airmattresses1 from "../images/airmattresses1.jpg";
 import airmattresses2 from "../images/airmattresses2.jpg";
 import airmattresses3 from "../images/airmattresses3.jpg";
 import airmattresses4 from "../images/airmattresses4.jpg";
