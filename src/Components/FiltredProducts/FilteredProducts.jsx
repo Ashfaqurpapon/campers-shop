@@ -13,10 +13,10 @@ import Error from "../Error/Error";
 import {
   filterProducts,
   filterGender,
-  sortByPriceac,
+  sortByPriceDescending,
   filterByColor,
   filterBySize,
-  sortByPricede,
+  sortByPriceAscending,
 } from "../../features/slices/productsSlice";
 
 const FilteredProducts = () => {
@@ -55,9 +55,9 @@ const FilteredProducts = () => {
                 variant="outlined"
                 ripple={true}
                 className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4"
-                onClick={() => dispatch(sortByPriceac())}
+                onClick={() => dispatch(sortByPriceAscending())}
               >
-                High Price accending
+                High Price
               </Button>
               <Button
                 color="gray"
@@ -65,9 +65,9 @@ const FilteredProducts = () => {
                 variant="outlined"
                 ripple={true}
                 className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4"
-                onClick={() => dispatch(sortByPricede())}
+                onClick={() => dispatch(sortByPriceDescending())}
               >
-                High Price decending
+                Low Price
               </Button>
             </div>
             <div className="pr-14">

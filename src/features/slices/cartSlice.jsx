@@ -70,8 +70,35 @@ export const cartSlice = createSlice({
         return err;
       }
     },
+    incrementQuantity: (state, action) => {
+      const item = state.cart.find(
+        (cartItem) => cartItem.id === action.payload
+      );
+
+      if (item) {
+        item.amount += 1;
+        item.totalPrice += item.price;
+        state.totalPrice += item.price;
+      }
+    },
+    decrementQuantity: (state, action) => {
+      const item = state.cart.find(
+        (cartItem) => cartItem.id === action.payload
+      );
+
+      if (item && item.amount > 1) {
+        item.amount -= 1;
+        item.totalPrice -= item.price;
+        state.totalPrice -= item.price;
+      }
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+} = cartSlice.actions;
 export default cartSlice.reducer;

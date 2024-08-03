@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tooltip, Button } from "@material-tailwind/react";
+import Magnifier from "react-magnifier";
 import { addToCart } from "../../features/slices/cartSlice";
-import { useDispatch } from "react-redux";
 
 const SingleProduct = () => {
   const product = useSelector((state) => state.products.singleProduct);
@@ -23,11 +23,15 @@ const SingleProduct = () => {
           return (
             <div key={index} className="flex justify-center items-center py-10">
               <div className="pl-44 grow-[2]">
-                <img
-                  className="h-[850px] rounded-lg"
+                <Magnifier
                   src={item.img}
                   alt={item.name}
-                ></img>
+                  width={850}
+                  height={850}
+                  zoomFactor={1.5}
+                  mgHeight={200}
+                  mgWidth={200}
+                />
               </div>
               <div className="grow-[3]">
                 <div className="max-w-lg">

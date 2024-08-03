@@ -37,29 +37,28 @@ export const productSlice = createSlice({
       }
     },
 
-    // sortByPricede(state) {
-    //   try {
-    //     const price = state.filteredProducts.sort((a, b) => b.price - a.price);
-    //     state.filteredProducts = price;
-    //     let count = price.length;
-    //     if (count > 1) {
-    //       const noError = false;
-    //       state.error = noError;
-    //       if (!noError) {
-    //         state.filteredProducts = price;
-    //         const saveState = JSON.stringify(price);
-    //         sessionStorage.setItem("filteredData", saveState);
-    //       }
-    //     } else {
-    //       state.error = true;
-    //       state.filteredProducts = [];
-    //     }
-    //   } catch (err) {
-    //     return err;
-    //   }
-    // },
-
-    sortByPricede(state) {
+    sortByPriceDescending(state) {
+      try {
+        const price = state.filteredProducts.sort((a, b) => b.price - a.price);
+        state.filteredProducts = price;
+        let count = price.length;
+        if (count > 1) {
+          const noError = false;
+          state.error = noError;
+          if (!noError) {
+            state.filteredProducts = price;
+            const saveState = JSON.stringify(price);
+            sessionStorage.setItem("filteredData", saveState);
+          }
+        } else {
+          state.error = true;
+          state.filteredProducts = [];
+        }
+      } catch (err) {
+        return err;
+      }
+    },
+    sortByPriceAscending(state) {
       try {
         const price = state.filteredProducts.sort((a, b) => a.price - b.price);
         state.filteredProducts = price;
@@ -80,6 +79,22 @@ export const productSlice = createSlice({
         return err;
       }
     },
+    addProduct(state, action) {
+      state.products.push(action.payload);
+    },
+    updateProduct(state, action) {
+      const index = state.products.findIndex(
+        (product) => product.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.products[index] = action.payload;
+      }
+    },
+    deleteProduct(state, action) {
+      state.products = state.products.filter(
+        (product) => product.id !== action.payload
+      );
+    },
   },
 });
 
@@ -87,9 +102,12 @@ export const {
   filterProducts,
   singleProduct,
   filterGender,
-  sortByPricede,
-  sortByPriceac,
+  sortByPriceAscending,
+  sortByPriceDescending,
   filterByColor,
   filterBySize,
+  addProduct,
+  updateProduct,
+  deleteProduct,
 } = productSlice.actions;
 export default productSlice.reducer;

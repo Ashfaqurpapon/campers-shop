@@ -8,7 +8,11 @@ import {
 } from "@material-tailwind/react";
 import { Tooltip } from "@material-tailwind/react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "../../features/slices/cartSlice";
+import {
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../../features/slices/cartSlice";
 
 const Cart = ({ openModal, setOpen }) => {
   const cart = useSelector((state) => state.cart.cart);
@@ -69,6 +73,28 @@ const Cart = ({ openModal, setOpen }) => {
                         <p className="text-black text-sm font-inter tracking-normal leading-none pt-2">
                           Amount: <span className="ml-2">{item.amount}</span>
                         </p>
+                        <div className="flex items-center pt-2">
+                          <Button
+                            onClick={() => dispatch(decrementQuantity(item.id))}
+                            size="sm"
+                            color="blue"
+                            ripple={true}
+                            variant="filled"
+                            disabled={item.amount <= 1}
+                          >
+                            -
+                          </Button>
+                          <span className="mx-2">{item.amount}</span>
+                          <Button
+                            onClick={() => dispatch(incrementQuantity(item.id))}
+                            size="sm"
+                            color="blue"
+                            ripple={true}
+                            variant="filled"
+                          >
+                            +
+                          </Button>
+                        </div>
                         <p className="text-black text-sm font-inter tracking-normal leading-none pt-2">
                           Single Item Price:{" "}
                           <span className="ml-2">{item.price}$</span>

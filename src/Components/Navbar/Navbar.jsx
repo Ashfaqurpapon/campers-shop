@@ -33,6 +33,9 @@ const Navbar = () => {
             <Link to="/products" className="mr-4">
               Products
             </Link>
+            <Link to="/productsManagment" className="mr-4">
+              ProductsManagment
+            </Link>
           </div>
           <div className="flex flex-row items-center">
             <div className="flex flex-row items-center mr-4">
