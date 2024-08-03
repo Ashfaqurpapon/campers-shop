@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tooltip, Button } from "@material-tailwind/react";
-import Magnifier from "react-magnifier";
+
 import { addToCart } from "../../features/slices/cartSlice";
 
 const SingleProduct = () => {
@@ -22,17 +22,7 @@ const SingleProduct = () => {
         .map((item, index) => {
           return (
             <div key={index} className="flex justify-center items-center py-10">
-              <div className="pl-44 grow-[2]">
-                <Magnifier
-                  src={item.img}
-                  alt={item.name}
-                  width={850}
-                  height={850}
-                  zoomFactor={1.5}
-                  mgHeight={200}
-                  mgWidth={200}
-                />
-              </div>
+              <div className="pl-44 grow-[2]"></div>
               <div className="grow-[3]">
                 <div className="max-w-lg">
                   <h5 className="text-2xl font-inter font-bold tracking-normal leading-none pb-4">
