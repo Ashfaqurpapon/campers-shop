@@ -28,7 +28,7 @@ Programming Language: JavaScript
 
 Framework: React
 
-State Management:Redux
+State Management: Redux
 
 Styling: Tailwind CSS
 
