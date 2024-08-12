@@ -6,7 +6,7 @@ Campers Shop is an e-commerce website dedicated to providing all the necessary a
 # Live Link
 
 
-The live version of the Car Rental Reservation System can be accessed at: https://campers-shop-virid.vercel.app/
+The live version of the Campers Shop can be accessed at: https://campers-shop-virid.vercel.app/
 
 # Features
 
